@@ -7,6 +7,7 @@ import {
   ForbesList,
   CryptoHistory,
 } from 'components';
+import { Todo } from 'components/todo/ToDo';
 import article from 'data/article.json';
 import data from 'data/data.json';
 import forbes from 'data/forbes.json';
@@ -15,6 +16,7 @@ import transactions from 'data/transactions.json';
 export const App = () => {
   return (
     <Section>
+      <Todo />
       <Container>
         <Heading marginBottom="50px" textAlign="center">
           Task 1
