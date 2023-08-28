@@ -19,6 +19,11 @@ export class Todo extends Component {
     this.setState(prevState => ({ todos: [...prevState.todos, todo] }));
   };
 
+  handlDelet = id =>
+    this.setState(prevState => ({
+      todos: prevState.todos.filter(todo => todo.id !== id),
+    }));
+
   render() {
     const { todos } = this.state;
     return (
@@ -27,7 +32,12 @@ export class Todo extends Component {
         <Form handleSubmit={this.handleSubmit} />
         <ul>
           {todos.map(todo => (
-            <li key={todo.id}>{todo.text}</li>
+            <li key={todo.id}>
+              {todo.text}{' '}
+              <button type="button" onClick={() => this.handlDelet(todo.id)}>
+                Delete todo
+              </button>
+            </li>
           ))}
         </ul>
       </>
